@@ -102,7 +102,7 @@ const Location = () => {
 
   console.log("--", weather);
 
-  let label = "Notifications";
+  let label = "";
 
   function celsiusFahrenheitConversion(value) {
     if (isCelcius) {
@@ -138,6 +138,9 @@ const Location = () => {
           </div>
 
           {/*  */}
+          <div>
+            <h1>{isCelcius?"°C":"°F"}</h1>
+          </div>
 
           <TemparatureSwitchToggle label={label} setIsCelcius={setIsCelcius} />
 

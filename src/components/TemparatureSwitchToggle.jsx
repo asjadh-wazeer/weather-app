@@ -13,7 +13,7 @@ function onChangeTemparatureToggle(e) {
 
   return (
     <div className="temparature__switch__container">
-    {label}{" "}
+    {/* {label}{" "} */}
     <div className="temparature__toggle__switch">
       <input
         type="checkbox"
@@ -21,6 +21,7 @@ function onChangeTemparatureToggle(e) {
         name={label}
         id={label}
         onChange={onChangeTemparatureToggle}
+        defaultChecked={true}
       />
       <label className="temparature__toggle__switch__label" htmlFor={label}>
         <span className="temparature__toggle__switch__inner" />
