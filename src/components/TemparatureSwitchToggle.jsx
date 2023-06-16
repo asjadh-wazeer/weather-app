@@ -4,7 +4,7 @@ function TemparatureSwitchToggle({label, setIsCelcius}) {
 
 
 function onChangeTemparatureToggle(e) {
-    if(e.target.value){
+    if(e.target.checked){
         setIsCelcius(true)
     } else {
         setIsCelcius(false)
