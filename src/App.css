@@ -141,3 +141,78 @@ width: 100%;
 .date {
   color: #fff;
 }
+
+
+/* ////// */
+.temparature__switch__container {
+  text-align: center;
+}
+.temparature__toggle__switch {
+  position: relative;
+  width: 175px;
+  display: inline-block;
+  text-align: left;
+  top: 8px;
+}
+.temparature__toggle__switch__checkbox {
+  display: none;
+}
+.temparature__toggle__switch__label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 0 solid #bbb;
+  border-radius: 20px;
+}
+.temparature__toggle__switch__inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+.temparature__toggle__switch__inner:before,
+.temparature__toggle__switch__inner:after {
+  float: left;
+  width: 50%;
+  height: 36px;
+  padding: 0;
+  line-height: 36px;
+  color: #fff;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+.temparature__toggle__switch__inner:before {
+  content: "Celcius";
+  padding-left: 10px;
+  background-color: #060;
+  color: #fff;
+}
+.temparature__toggle__switch__inner:after {
+  content: "Fahrenheit";
+  padding-right: 10px;
+  background-color: #bbb;
+  color: #fff;
+  text-align: right;
+}
+.temparature__toggle__switch__switch {
+  display: block;
+  width: 24px;
+  margin: 5px;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 140px;
+  /* left: 0; */
+  border: 0 solid #bbb;
+  border-radius: 20px;
+  transition: all 0.3s ease-in 0s;
+}
+.temparature__toggle__switch__checkbox:checked + .temparature__toggle__switch__label .temparature__toggle__switch__inner {
+  margin-left: 0;
+}
+.temparature__toggle__switch__checkbox:checked + .temparature__toggle__switch__label .temparature__toggle__switch__switch {
+  right: 0px;
+}
+
+/*  */

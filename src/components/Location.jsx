@@ -6,6 +6,7 @@ import { SiWindicss } from "react-icons/si";
 import { WiHumidity } from "react-icons/wi";
 import { GiWeightScale } from "react-icons/gi";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import TemparatureSwitchToggle from "./TemparatureSwitchToggle";
 // import { FaBeer } from 'react-icons/fa';
 
 export const SpeedMeter = ({ speed }) => {
@@ -35,6 +36,7 @@ const Location = () => {
   const [weather, setWeather] = useState(true);
   const [temperature, setTemperature] = useState(true);
   const [date, setDate] = useState(true);
+  const [isCelcius, setIsCelcius] = useState(true);
 
   const [icon, setIcon] = useState(true);
 
@@ -100,8 +102,18 @@ const Location = () => {
 
   console.log("--", weather);
 
-  
+  let label = "Notifications";
 
+  function celsiusFahrenheitConversion(value) {
+    if (isCelcius) {
+      const roundedNumber = Math.ceil(value * 10) / 10;
+      return roundedNumber;
+    } else {
+      const celciusToFahrenheit = (value * 9) / 5 + 32;
+      const roundedNumber = Math.ceil(celciusToFahrenheit * 10) / 10;
+      return roundedNumber;
+    }
+  }
   return (
     <div className="Location">
       {loading ? (
@@ -125,7 +137,11 @@ const Location = () => {
             />
           </div>
 
-          
+          {/*  */}
+
+          <TemparatureSwitchToggle label={label} setIsCelcius={setIsCelcius} />
+
+          {/*  */}
 
           <div className="weather__container">
             {/* <div> */}
@@ -141,7 +157,7 @@ const Location = () => {
             />
 
             <div className="temperature__box">
-              <p className="temperature">{temperature}</p>
+              <p className="temperature">{celsiusFahrenheitConversion(temperature)}</p>
               <p className="temperature__unit">°</p>
             </div>
 
