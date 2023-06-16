@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function Weather({ city, setIcon, setWeather, setTemperature }) {
-
-    
   async function fetchWeatherData() {
     try {
       const getWeatherData = await axios.get(
@@ -14,18 +12,22 @@ function Weather({ city, setIcon, setWeather, setTemperature }) {
 
       if (getWeatherData.status === 200) {
         console.log("getWeatherData", getWeatherData.data?.main?.temp);
-        setTemperature(getWeatherData.data?.main?.temp);
-        setIcon(getWeatherData.data.weather[0].icon);
-        setWeather(getWeatherData.data.weather);
+        // setTemperature(getWeatherData.data?.main?.temp);
+        // setIcon(getWeatherData.data.weather[0].icon);
+        // setWeather(getWeatherData.data.weather);
       }
     } catch (error) {
       console.log("Error occurred in the fetchWeatherData function");
     }
   }
 
+  console.log("City🚀", city);
+
   useEffect(() => {
-    console.log("City");
-    fetchWeatherData();
+    if (city) {
+      console.log("City🚀", city);
+      fetchWeatherData();
+    }
   }, [city]);
 
   return <div>Weather</div>;
