@@ -1,0 +1,143 @@
+.App {
+  /* background: linear-gradient(to bottom, #341E67, #331440); */
+  background: linear-gradient(to bottom, #06c2ec, #0649f1);
+
+  min-height: 100vh;
+  width: 100%;
+}
+
+.weather__container {
+  /* background-color: #604a96; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+width: 100%;
+  /* justify-content: end; */
+}
+.weather__icon {
+  width: 124px;
+}
+
+.temperature__box {
+  color: white;
+  font-size: 78px;
+  display: flex;
+  font-weight: 400;
+}
+
+.temperature {
+}
+
+.temperature__unit {
+  /* font-weight: 700; */
+  /* margin-left: 12px; */
+  /* font-size: 38px;
+  margin-top: 22px; */
+}
+
+/*  */
+
+.speed-meter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+
+.speed-meter-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+}
+
+.needle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: bottom;
+  width: 2px;
+  height: 50px;
+  background-color: red;
+  transition: transform 0.5s ease;
+}
+
+.speed-text {
+  margin-top: 10px;
+  font-size: 18px;
+}
+/*  */
+
+.unit__box {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.unit__icon {
+  font-size: 22px;
+}
+
+.unit__box h6 {
+  margin-top: 12px;
+  font-size: 14px;
+}
+.unit__box p {
+  margin-top: -24px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.humidity__icon {
+  font-size: 28px;
+}
+
+.pressure__icon {
+
+}
+.unit__box__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.weather__type {
+  color: #FAFD73;
+  font-size: 68px;
+  margin-top: -62px;
+  font-weight: 400;
+}
+
+@media (max-width: 450px) {
+  .weather__type {
+    font-size: 44px;
+    margin-top: -52px;
+  }
+
+  .temperature__box {
+    color: white;
+    font-size: 54px;
+    display: flex;
+    font-weight: 400;
+  }
+}
+.location__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #fff;
+}
+.location__icon {
+  font-size: 28px;
+  padding-right: 4px;
+  margin-bottom: 4px;
+}
+.date {
+  color: #fff;
+}
