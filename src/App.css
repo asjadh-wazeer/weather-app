@@ -12,11 +12,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 60%;
   /* justify-content: end; */
+  margin: 0 auto;
 }
 .weather__icon {
   width: 124px;
+  margin-top: -12px;
 }
 
 .temperature__box {
@@ -24,10 +26,12 @@
   font-size: 78px;
   display: flex;
   font-weight: 400;
-  margin-top: -44px;
+  margin-top: -14px;
 }
 
 .temperature {
+  font-size: 134px;
+  margin-top: 0;
 }
 
 .temperature__unit {
@@ -35,6 +39,7 @@
   /* margin-left: 12px; */
   /* font-size: 38px;
   margin-top: 22px; */
+  margin-top: 10px;
 }
 
 .unit__box {
@@ -44,24 +49,35 @@
   align-items: center;
   /* justify-content: center; */
   width: 148px;
+  height: 160px;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
+    transparent;
+  padding: 20px 6px;
+  border-radius: 8px;
+  margin: 4px;
 }
 
 .unit__icon {
-  font-size: 22px;
+  font-size: 32px;
+  /* background-color: #fafd73; */
+  height: 44px;
+  width: auto;
 }
 
 .unit__box h6 {
   margin-top: 12px;
-  font-size: 14px;
+  font-size: 24px;
+  /* background-color: darkorange; */
+  height: 88px;
 }
 .unit__box p {
   margin-top: -24px;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .humidity__icon {
-  font-size: 28px;
+  font-size: 38px;
 }
 
 .pressure__icon {
@@ -73,52 +89,18 @@
   width: 100%;
 }
 .unit__box__container__2 {
-  margin-top: 24px;
+  margin-top: 36px;
 }
 .weather__type {
   color: #fafd73;
   font-size: 68px;
-  margin-top: -62px;
+  margin-top: 24px;
   font-weight: 400;
   text-align: center;
   text-transform: capitalize;
   padding: 0 4px;
 }
 
-@media (max-width: 450px) {
-  .weather__type {
-    font-size: 44px;
-    margin-top: 44px;
-  }
-
-  .temperature__box {
-    color: white;
-    font-size: 54px;
-    display: flex;
-    font-weight: 400;
-    height: 124px;
-    /* background-color: pink; */
-    margin: 8px auto;
-    margin-bottom: 10px;
-  }
-  .temperature {
-    font-size: 104px;
-    margin-top: 0;
-  }
-  .temperature__unit {
-    margin-top: 8px;
-    font-weight: 300;
-  }
-  .weather__content {
-    position: relative;
-    text-align: center;
-    width: 70%;
-    padding: 44px 0px;
-    /* border-top:  2px solid #fff; */
-    background-color: crimson;
-    
-  }
-}
 .location__container {
   display: flex;
   align-items: center;
@@ -134,7 +116,8 @@
 .date {
   color: #fff;
   font-size: 22px;
-  margin-top: -28px;
+  font-weight: 500;
+  margin-top: -58px;
 }
 
 /* ////// */
@@ -219,10 +202,12 @@
   position: relative;
   text-align: center;
   width: 100%;
+  padding-bottom: 88px;
+  margin-top: 54px;
 }
 
 .weather__content__text {
-  max-height: 100px;
+  max-height: 220px;
   overflow: hidden;
   transition: max-height 0.3s ease;
 }
@@ -250,7 +235,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  margin: 20px auto;
   font-size: 16px;
 }
 
@@ -279,6 +264,97 @@
   justify-content: center;
 }
 /* //// */
-/* .temparature__switch__toggle {
-  margin-top: -44px;
-} */
+.temparature__switch__toggle {
+  margin-top: -138px;
+}
+@media (max-width: 865px) {
+  .weather__container {
+    width: 70%;
+  }
+}
+
+@media (max-width: 634px)  {
+  .weather__container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 450px) {
+  .weather__container {
+    width: 100%;
+  }
+  .weather__type {
+    font-size: 44px;
+    margin-top: 44px;
+  }
+
+  .temperature__box {
+    color: white;
+    font-size: 54px;
+    display: flex;
+    font-weight: 400;
+    height: 124px;
+    /* background-color: pink; */
+    margin: 8px auto;
+    margin-bottom: 10px;
+  }
+  .temperature {
+    font-size: 104px;
+    margin-top: 0;
+  }
+  .temperature__unit {
+    margin-top: 8px;
+    font-weight: 300;
+  }
+  .weather__content {
+    position: relative;
+    text-align: center;
+    width: 90%;
+    padding: 44px 0px;
+    /* border-top:  2px solid #fff; */
+    /* background-color: crimson; */
+    /* margin-top: 4px; */
+  }
+  .unit__box {
+    width: 104px;
+    height: 120px;
+    margin: 4px;
+  }
+  .unit__box p {
+    margin-top: -24px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .unit__box h6 {
+    margin-top: 12px;
+    font-size: 14px;
+  }
+
+  .unit__icon {
+    font-size: 22px;
+  }
+
+  .humidity__icon {
+    font-size: 28px;
+  }
+
+  .temparature__switch__toggle {
+    margin-top: 0;
+  }
+  .date {
+    margin-top: -32px;
+  }
+
+  .weather__content__text {
+    max-height: 180px;
+  }
+
+  .unit__box__container {
+    overflow: scroll;
+  }
+}
+
+
+
+

@@ -145,19 +145,19 @@ console.log(weather)
             <div className="weather__content">
               <div className={`weather__content__text ${expanded ? "expanded" : ""}`}>
                 <div className="unit__box__container">
-                  <div className="unit__box">
+                  <div className="unit__box unit__box__top">
                     <SiWindicss className="unit__icon" />
                     <h6>{`${weather.wind.speed} km/h`}</h6>
                     <p>Wind</p>
                   </div>
 
-                  <div className="unit__box">
+                  <div className="unit__box unit__box__top">
                     <WiHumidity className="unit__icon humidity__icon" />
                     <h6>{`${weather.main.humidity} %`}</h6>
                     <p>Humidity</p>
                   </div>
 
-                  <div className="unit__box">
+                  <div className="unit__box unit__box__top">
                     <GiWeightScale className="unit__icon pressure__icon" />
                     <h6>{`${weather.main.pressure} Pa`}</h6>
                     <p>Pressure</p>
@@ -165,19 +165,19 @@ console.log(weather)
                 </div>
 
                 <div className="unit__box__container unit__box__container__2">
-                  <div className="unit__box">
+                  <div className="unit__box unit__box__bottom">
                     <TbWorldLatitude className="unit__icon" />
                     <h6>{latitudeValue}</h6>
                     <p>Latitude</p>
                   </div>
 
-                  <div className="unit__box">
+                  <div className="unit__box unit__box__bottom">
                     <TbWorldLongitude className="unit__icon humidity__icon" />
                     <h6>{longitudeValue}</h6>
                     <p>Longitude</p>
                   </div>
 
-                  <div className="unit__box">
+                  <div className="unit__box unit__box__bottom">
                     <FaCity className="unit__icon pressure__icon" />
                     <h6>{city}</h6>
                     <p>City</p>
