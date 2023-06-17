@@ -1,5 +1,6 @@
-import "./App.css";
-import Location from "./components/Location";
+import React from "react";
+import Location from "./pages/Location";
+import "./styles/index.css";
 
 function App() {
   return (

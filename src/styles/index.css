@@ -17,8 +17,12 @@
   margin: 0 auto;
 }
 .weather__icon {
-  width: 124px;
+  width: 194px;
   margin-top: -12px;
+  /* background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6)),
+    transparent; */
+  padding: 12px;
+  /* margin-bottom: 18px; */
 }
 
 .temperature__box {
@@ -27,13 +31,11 @@
   display: flex;
   font-weight: 400;
   margin-top: -14px;
-  
 }
 
 .temperature {
   font-size: 134px;
   margin-top: 0;
-  
 }
 
 .temperature__unit {
@@ -408,6 +410,10 @@
 
   .error__message__box {
     width: 80%;
+  }
+
+  .weather__icon {
+    /* margin-bottom: 0; */
   }
 }
 @media (min-width: 1350px) {

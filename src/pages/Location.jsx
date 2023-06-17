@@ -6,7 +6,7 @@ import { SiWindicss } from "react-icons/si";
 import { WiHumidity } from "react-icons/wi";
 import { GiWeightScale } from "react-icons/gi";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import TemparatureSwitchToggle from "./TemparatureSwitchToggle";
+import TemparatureSwitchToggle from "../components/TemparatureSwitchToggle";
 import { BsCaretDownFill } from "react-icons/bs";
 import { BsCaretUpFill } from "react-icons/bs";
 import { TbWorldLatitude } from "react-icons/tb";
@@ -17,6 +17,7 @@ import { FaCity } from "react-icons/fa";
 // import { FaBeer } from 'react-icons/fa';
 
 import warning from "../assets/warning.png";
+import WeatherLogo from "../components/WeatherLogo";
 
 const Location = () => {
   const [city, setCity] = useState(null);
@@ -34,6 +35,8 @@ const Location = () => {
   const [longitudeValue, setLongitudeValue] = useState(true);
 
   const [expanded, setExpanded] = useState(false);
+
+  console.log(icon);
 
   function toggleExpanded() {
     setExpanded(!expanded);
@@ -115,8 +118,6 @@ const Location = () => {
     setDateFormat();
   }, []);
 
- 
-
   return (
     <div className="Location">
       {allowLocation ? (
@@ -150,11 +151,7 @@ const Location = () => {
                   <h4 className="location__name">{city}</h4>
                 </div>
 
-                <img
-                  alt="weather-icon"
-                  className="weather__icon"
-                  src={`http://openweathermap.org/img/w/${icon}.png`}
-                />
+                <WeatherLogo icon={icon} />
 
                 <div className="temperature__box">
                   <p className="temperature">
