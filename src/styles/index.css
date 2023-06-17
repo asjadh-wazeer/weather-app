@@ -86,8 +86,6 @@
   font-size: 38px;
 }
 
-.pressure__icon {
-}
 .unit__box__container {
   display: flex;
   align-items: center;
@@ -126,7 +124,7 @@
   margin-top: -58px;
 }
 
-/* ////// */
+/*  */
 .temparature__switch__container {
   text-align: center;
 }
@@ -245,15 +243,6 @@
   font-size: 16px;
 }
 
-/* .arrow {
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-
-.arrow.up {
-  transform: rotate(180deg);
-} */
-
 .show__more__less__button__icon {
   /* padding-top: 122px; */
   /* background-color: #FAFD73;
@@ -269,7 +258,7 @@
   align-items: center;
   justify-content: center;
 }
-/* //// */
+/*  */
 .temparature__switch__toggle {
   margin-top: -138px;
 }
@@ -410,10 +399,6 @@
 
   .error__message__box {
     width: 80%;
-  }
-
-  .weather__icon {
-    /* margin-bottom: 0; */
   }
 }
 @media (min-width: 1350px) {

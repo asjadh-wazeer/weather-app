@@ -12,9 +12,6 @@ import { BsCaretUpFill } from "react-icons/bs";
 import { TbWorldLatitude } from "react-icons/tb";
 import { TbWorldLongitude } from "react-icons/tb";
 import { FaCity } from "react-icons/fa";
-// import { FaBeer } from 'react-icons/fa';
-// import { FaBeer } from 'react-icons/fa';
-// import { FaBeer } from 'react-icons/fa';
 
 import warning from "../assets/warning.png";
 import WeatherLogo from "../components/WeatherLogo";
@@ -35,8 +32,6 @@ const Location = () => {
   const [longitudeValue, setLongitudeValue] = useState(true);
 
   const [expanded, setExpanded] = useState(false);
-
-  console.log(icon);
 
   function toggleExpanded() {
     setExpanded(!expanded);
@@ -88,7 +83,7 @@ const Location = () => {
     } catch (error) {
       //   alert("Please allow access to your location...");
       setAllowLocation(false);
-      console.log("Error occurred in the fetchLocationData function");
+      // console.log("Error occurred in the fetchLocationData function");
       setLoading(false);
     }
   }
@@ -109,10 +104,10 @@ const Location = () => {
         setIcon(fetchLocationName.data?.weather[0]?.icon);
       }
     } catch (error) {
-      console.log("Error occurred in the fetchLocationName function");
+      // console.log("Error occurred in the fetchLocationName function");
     }
   }
-  //   console.log(weather,`http://openweathermap.org/img/w/${weather?.weather[0]?.icon}.png`);
+
   useEffect(() => {
     fetchLocationData();
     setDateFormat();
@@ -123,10 +118,8 @@ const Location = () => {
       {allowLocation ? (
         <div>
           {loading ? (
-            // <div className="error__message">Loading location.....</div>
             <div className="error__message__container">
               <div className="error__message__box">
-                {/* <img src={warning} alt="warning" className="warning__logo" /> */}
                 <div>
                   <Rings
                     height="100"
@@ -194,7 +187,7 @@ const Location = () => {
                       </div>
 
                       <div className="unit__box ">
-                        <GiWeightScale className="unit__icon pressure__icon" />
+                        <GiWeightScale className="unit__icon " />
                         <h6>{`${weather.main.pressure} hPa`}</h6>
                         <p>Pressure</p>
                       </div>
@@ -214,7 +207,7 @@ const Location = () => {
                       </div>
 
                       <div className="unit__box ">
-                        <FaCity className="unit__icon pressure__icon" />
+                        <FaCity className="unit__icon " />
                         <h6>{city}</h6>
                         <p>City</p>
                       </div>
@@ -240,11 +233,6 @@ const Location = () => {
           )}
         </div>
       ) : (
-        // <div className="error__message">
-        //   <img src={warning} alt="warning" className="warning__logo" />
-        //   <p>Please allow access to your location</p>
-        // </div>
-
         <div className="error__message__container">
           <div className="error__message__box">
             <img src={warning} alt="warning" className="warning__logo" />
