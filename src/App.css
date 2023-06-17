@@ -27,11 +27,13 @@
   display: flex;
   font-weight: 400;
   margin-top: -14px;
+  
 }
 
 .temperature {
   font-size: 134px;
   margin-top: 0;
+  
 }
 
 .temperature__unit {
@@ -96,7 +98,7 @@
 .weather__type {
   color: #fafd73;
   font-size: 68px;
-  margin-top: 24px;
+  margin-top: 64px;
   font-weight: 400;
   text-align: center;
   text-transform: capitalize;
@@ -163,13 +165,13 @@
 .temparature__toggle__switch__inner:before {
   content: "Celcius";
   padding-left: 10px;
-  background-color: #060;
+  background-color: rgb(25, 2, 156);
   color: #fff;
 }
 .temparature__toggle__switch__inner:after {
   content: "Fahrenheit";
   padding-right: 10px;
-  background-color: #bbb;
+  background-color: #232222;
   color: #fff;
   text-align: right;
 }
@@ -405,7 +407,7 @@
   }
 
   .error__message__box {
-    width: 85%;
+    width: 80%;
   }
 }
 @media (min-width: 1350px) {

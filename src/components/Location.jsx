@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Rings } from "react-loader-spinner";
+
 import { SiWindicss } from "react-icons/si";
 import { WiHumidity } from "react-icons/wi";
 import { GiWeightScale } from "react-icons/gi";
@@ -113,12 +115,32 @@ const Location = () => {
     setDateFormat();
   }, []);
 
+ 
+
   return (
     <div className="Location">
       {allowLocation ? (
         <div>
           {loading ? (
-            <div className="error__message">Loading location.....</div>
+            // <div className="error__message">Loading location.....</div>
+            <div className="error__message__container">
+              <div className="error__message__box">
+                {/* <img src={warning} alt="warning" className="warning__logo" /> */}
+                <div>
+                  <Rings
+                    height="100"
+                    width="100"
+                    color="#fafd73"
+                    radius="6"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    visible={true}
+                    ariaLabel="rings-loading"
+                  />
+                </div>
+                <p>Detecting your location...</p>
+              </div>
+            </div>
           ) : (
             <>
               <div className="weather__container">
@@ -176,7 +198,7 @@ const Location = () => {
 
                       <div className="unit__box ">
                         <GiWeightScale className="unit__icon pressure__icon" />
-                        <h6>{`${weather.main.pressure} Pa`}</h6>
+                        <h6>{`${weather.main.pressure} hPa`}</h6>
                         <p>Pressure</p>
                       </div>
                     </div>
