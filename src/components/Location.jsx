@@ -14,6 +14,8 @@ import { FaCity } from "react-icons/fa";
 // import { FaBeer } from 'react-icons/fa';
 // import { FaBeer } from 'react-icons/fa';
 
+import warning from "../assets/warning.png";
+
 const Location = () => {
   const [city, setCity] = useState(null);
 
@@ -22,6 +24,9 @@ const Location = () => {
   const [temperature, setTemperature] = useState(true);
   const [date, setDate] = useState(true);
   const [isCelcius, setIsCelcius] = useState(true);
+  const [icon, setIcon] = useState(true);
+
+  const [allowLocation, setAllowLocation] = useState(true);
 
   const [latitudeValue, setLatitudeValue] = useState(true);
   const [longitudeValue, setLongitudeValue] = useState(true);
@@ -70,11 +75,14 @@ const Location = () => {
     try {
       const position = await getCurrentPosition();
       const { latitude, longitude } = position.coords;
+      setAllowLocation(true);
       setLatitudeValue(latitude);
       setLongitudeValue(longitude);
       await fetchWeatherData(latitude, longitude);
       setLoading(false);
     } catch (error) {
+      //   alert("Please allow access to your location...");
+      setAllowLocation(false);
       console.log("Error occurred in the fetchLocationData function");
       setLoading(false);
     }
@@ -93,12 +101,13 @@ const Location = () => {
 
         setTemperature(fetchLocationName.data?.main?.temp);
         setWeather(fetchLocationName.data);
+        setIcon(fetchLocationName.data?.weather[0]?.icon);
       }
     } catch (error) {
       console.log("Error occurred in the fetchLocationName function");
     }
   }
-console.log(weather)
+  //   console.log(weather,`http://openweathermap.org/img/w/${weather?.weather[0]?.icon}.png`);
   useEffect(() => {
     fetchLocationData();
     setDateFormat();
@@ -106,101 +115,123 @@ console.log(weather)
 
   return (
     <div className="Location">
-      {loading ? (
-        <div>Loading location.....</div>
-      ) : (
-        <>
-          <div className="weather__container">
-            {/* <div> */}
-            <div className="location__container">
-              <FaMapMarkerAlt className="location__icon" />
-              <h4 className="location__name">{city}</h4>
-            </div>
-            
-            <img
-              alt="weather"
-              className="weather__icon"
-              src={`http://openweathermap.org/img/w/${weather?.weather[0]?.icon}.png`}
-            />
-
-            <div className="temperature__box">
-              <p className="temperature">
-                {celsiusFahrenheitConversion(temperature)}
-              </p>
-
-              <p className="temperature__unit">°</p>
-            </div>
-
-            <div className="temparature__switch__toggle">
-              <TemparatureSwitchToggle
-                label={"Temparature"}
-                setIsCelcius={setIsCelcius}
-              />
-            </div>
-
-            <h3 className="weather__type">{weather?.weather[0]?.description}</h3>
-            <h2 className="date">{date}</h2>
-
-            {/*  */}
-            <div className="weather__content">
-              <div className={`weather__content__text ${expanded ? "expanded" : ""}`}>
-                <div className="unit__box__container">
-                  <div className="unit__box unit__box__top">
-                    <SiWindicss className="unit__icon" />
-                    <h6>{`${weather.wind.speed} km/h`}</h6>
-                    <p>Wind</p>
-                  </div>
-
-                  <div className="unit__box unit__box__top">
-                    <WiHumidity className="unit__icon humidity__icon" />
-                    <h6>{`${weather.main.humidity} %`}</h6>
-                    <p>Humidity</p>
-                  </div>
-
-                  <div className="unit__box unit__box__top">
-                    <GiWeightScale className="unit__icon pressure__icon" />
-                    <h6>{`${weather.main.pressure} Pa`}</h6>
-                    <p>Pressure</p>
-                  </div>
+      {allowLocation ? (
+        <div>
+          {loading ? (
+            <div className="error__message">Loading location.....</div>
+          ) : (
+            <>
+              <div className="weather__container">
+                {/* <div> */}
+                <div className="location__container">
+                  <FaMapMarkerAlt className="location__icon" />
+                  <h4 className="location__name">{city}</h4>
                 </div>
 
-                <div className="unit__box__container unit__box__container__2">
-                  <div className="unit__box unit__box__bottom">
-                    <TbWorldLatitude className="unit__icon" />
-                    <h6>{latitudeValue}</h6>
-                    <p>Latitude</p>
-                  </div>
+                <img
+                  alt="weather-icon"
+                  className="weather__icon"
+                  src={`http://openweathermap.org/img/w/${icon}.png`}
+                />
 
-                  <div className="unit__box unit__box__bottom">
-                    <TbWorldLongitude className="unit__icon humidity__icon" />
-                    <h6>{longitudeValue}</h6>
-                    <p>Longitude</p>
-                  </div>
+                <div className="temperature__box">
+                  <p className="temperature">
+                    {celsiusFahrenheitConversion(temperature)}
+                  </p>
 
-                  <div className="unit__box unit__box__bottom">
-                    <FaCity className="unit__icon pressure__icon" />
-                    <h6>{city}</h6>
-                    <p>City</p>
-                  </div>
+                  <p className="temperature__unit">°</p>
                 </div>
+
+                <div className="temparature__switch__toggle">
+                  <TemparatureSwitchToggle
+                    label={"Temparature"}
+                    setIsCelcius={setIsCelcius}
+                  />
+                </div>
+
+                <h3 className="weather__type">
+                  {weather?.weather[0]?.description}
+                </h3>
+                <h2 className="date">{date}</h2>
+
+                {/*  */}
+                <div className="weather__content">
+                  <div
+                    className={`weather__content__text ${
+                      expanded ? "expanded" : ""
+                    }`}
+                  >
+                    <div className="unit__box__container">
+                      <div className="unit__box ">
+                        <SiWindicss className="unit__icon" />
+                        <h6>{`${weather.wind.speed} km/h`}</h6>
+                        <p>Wind</p>
+                      </div>
+
+                      <div className="unit__box ">
+                        <WiHumidity className="unit__icon humidity__icon" />
+                        <h6>{`${weather.main.humidity} %`}</h6>
+                        <p>Humidity</p>
+                      </div>
+
+                      <div className="unit__box ">
+                        <GiWeightScale className="unit__icon pressure__icon" />
+                        <h6>{`${weather.main.pressure} Pa`}</h6>
+                        <p>Pressure</p>
+                      </div>
+                    </div>
+
+                    <div className="unit__box__container unit__box__container__2">
+                      <div className="unit__box ">
+                        <TbWorldLatitude className="unit__icon" />
+                        <h6>{latitudeValue?.toFixed(3)}</h6>
+                        <p>Latitude</p>
+                      </div>
+
+                      <div className="unit__box ">
+                        <TbWorldLongitude className="unit__icon humidity__icon" />
+                        <h6>{longitudeValue?.toFixed(3)}</h6>
+                        <p>Longitude</p>
+                      </div>
+
+                      <div className="unit__box ">
+                        <FaCity className="unit__icon pressure__icon" />
+                        <h6>{city}</h6>
+                        <p>City</p>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    className="show__more__less__button "
+                    onClick={toggleExpanded}
+                  >
+                    <span>{expanded ? "Show Less" : "Show More"}</span>
+                    <span className="show__more__less__button__icon__container">
+                      {expanded ? (
+                        <BsCaretUpFill className="show__more__less__button__icon" />
+                      ) : (
+                        <BsCaretDownFill className="show__more__less__button__icon" />
+                      )}
+                    </span>
+                  </button>
+                </div>
+                {/*  */}
               </div>
-              <button
-                className="show__more__less__button "
-                onClick={toggleExpanded}
-              >
-                <span>{expanded ? "Show Less" : "Show More"}</span>
-                <span className="show__more__less__button__icon__container">
-                  {expanded ? (
-                    <BsCaretUpFill className="show__more__less__button__icon" />
-                  ) : (
-                    <BsCaretDownFill className="show__more__less__button__icon" />
-                  )}
-                </span>
-              </button>
-            </div>
-            {/*  */}
+            </>
+          )}
+        </div>
+      ) : (
+        // <div className="error__message">
+        //   <img src={warning} alt="warning" className="warning__logo" />
+        //   <p>Please allow access to your location</p>
+        // </div>
+
+        <div className="error__message__container">
+          <div className="error__message__box">
+            <img src={warning} alt="warning" className="warning__logo" />
+            <p>Please allow access to your location</p>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

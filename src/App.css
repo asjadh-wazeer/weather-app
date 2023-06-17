@@ -12,7 +12,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 60%;
+  width: 50%;
   /* justify-content: end; */
   margin: 0 auto;
 }
@@ -55,6 +55,7 @@
   padding: 20px 6px;
   border-radius: 8px;
   margin: 4px;
+  overflow: scroll;
 }
 
 .unit__icon {
@@ -69,6 +70,7 @@
   font-size: 24px;
   /* background-color: darkorange; */
   height: 88px;
+  word-wrap: break-word;
 }
 .unit__box p {
   margin-top: -24px;
@@ -267,15 +269,58 @@
 .temparature__switch__toggle {
   margin-top: -138px;
 }
+.error__message {
+  color: #fff;
+  font-size: 24px;
+  width: 90%;
+  padding-top: 32px;
+  text-align: center;
+  margin: auto;
+}
+.warning__logo {
+  width: 72px;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+.error__message__container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.error__message__box {
+  width: 30%;
+  margin: 44px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 20px;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)),
+    transparent;
+  border-radius: 8px;
+  /* padding-top: 44px; */
+  color: #fff;
+  text-align: center;
+  padding: 16px;
+}
+
 @media (max-width: 865px) {
   .weather__container {
     width: 70%;
   }
+  .error__message__box {
+    width: 60%;
+  }
 }
 
-@media (max-width: 634px)  {
+@media (max-width: 634px) {
   .weather__container {
     width: 90%;
+  }
+  .error__message__box {
+    width: 80%;
   }
 }
 
@@ -310,7 +355,7 @@
     position: relative;
     text-align: center;
     width: 90%;
-    padding: 44px 0px;
+    padding: 0 0px;
     /* border-top:  2px solid #fff; */
     /* background-color: crimson; */
     /* margin-top: 4px; */
@@ -319,6 +364,7 @@
     width: 104px;
     height: 120px;
     margin: 4px;
+    overflow: scroll;
   }
   .unit__box p {
     margin-top: -24px;
@@ -327,8 +373,12 @@
   }
 
   .unit__box h6 {
+    /* width: 84px; */
+
     margin-top: 12px;
-    font-size: 14px;
+    font-size: 18px;
+    overflow: scroll;
+    padding: 0 4px;
   }
 
   .unit__icon {
@@ -353,8 +403,13 @@
   .unit__box__container {
     overflow: scroll;
   }
+
+  .error__message__box {
+    width: 85%;
+  }
 }
-
-
-
-
+@media (min-width: 1350px) {
+  .weather__container {
+    width: 45%;
+  }
+}
